@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset = "utf-8">
+	<title>
+		별 문자 출력하기
+	</title>
+</head>
+<body>
+	<h2>별 문자 출력하기</h2>
+	<hr>
+<script>
+	function printStar(){
+		var n = prompt("정수를 입력하세요",0);
+		if(n <=0 || n - (Math.floor(n)) !=0 ){//만약 n이 정수가 아닌 유리수이거나, 음의 정수일 경우//
+			document.write("입력 오류 입니다.");
+			return ;
+		}
+		n = Number(n)
+        var b = isNaN(n);
+         if(b == false){//n이 양의 정수 일때//
+        for(var i=0; i<n;i++){//별 만들기//
+        	for(var j=0; j<=i;j++){
+        		document.write("*");
+        	}
+      		document.write("<br>");
+      	}
+} 
+    else if(b ==true){//n에 문자가 하나라도 있을 때//
+    	document.write("입력 오류 입니다.");
+    }
+    
+	
+}
+
+printStar();
+	
+</script>
+</body>
+</html>
