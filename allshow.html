@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>allshow</title>
+	<meta charset="utf-8">
+</head>
+<body>
+<h3>포스트잇 출력</h3>
+<hr>
+<script>
+if(window.localStorage) { 
+	document.write("<table>");
+	for(i=0; i<localStorage.length; i++) {
+		var key = localStorage.key(i);
+		var val = localStorage.getItem(key);
+		document.write("<tr>");
+		document.write("<td><span>" + (i+1) + "</span></td>");
+		document.write("<th>" + key + "</th>");
+		document.write("<td>" + val + "</td>");
+		document.write("</tr>");
+	}
+	document.write("</table>");
+}
+else {
+	alert("지원하지 않습니다."); 
+}
+</script>
+</body>
+</html>
