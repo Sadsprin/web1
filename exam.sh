@@ -8,15 +8,15 @@ do
 	case "${flag}" in
 		b) BENCHMARKS=${OPTARG};;
 		d) DISABLE_WAL=${OPTARG};;
-		v) VALUE_SIZE=${OPTARG};;
-		k) KEY_SIZE=${OPTARG};;
 		f) FILEPATH=${OPTARG};;
 	esac
 done
 
+read -r -p "please enter value size separated by space: " -a arr
+
 cat /dev/null > $FILEPATH
 
-for i in ${VALUE_SIZE}
+for value_size in "${arr[@]}"
 
 do
 
@@ -26,7 +26,7 @@ for number in {1..5}
 
 do
 
-./db_bench  --benchmarks="$BENCHMARKS" --disable_wal="$DISABLE_WAL" --value_size="$VALUE_SIZE" > my_result.txt
+./db_bench  --benchmarks="$BENCHMARKS" --disable_wal="$DISABLE_WAL" --value_size="$value_size" > my_result.txt
 
 sed -n '22p' my_result.txt >> final_result.txt
 
